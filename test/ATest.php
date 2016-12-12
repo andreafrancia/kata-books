@@ -56,7 +56,14 @@ TOTAL: 57.6 EUR', $this->shop->getReceipt());
             new Book("Harry Potter and the Order of the Phoenix", 18.29)
          */
         $shop = new BookShop();
+
         $price = $shop->findPrice("Harry Potter and the Half-Blood Prince");
+        self::assertEquals(18.289999999999999, $price);
+
+        $price = $shop->findPrice("Harry Potter and the Chamber of Secrets");
+        self::assertEquals(18.289999999999999, $price);
+
+        $price = $shop->findPrice("Harry Potter and the Order of the Phoenix");
         self::assertEquals(18.289999999999999, $price);
     }
 }
