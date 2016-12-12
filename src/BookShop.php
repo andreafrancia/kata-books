@@ -25,12 +25,12 @@ class BookShop {
                 $price = $this->books[$i]->getFullPrice();
             }
         }
-        $price = sprintf("%2.2d", $price);
-        $this->receipt .= ": $price EUR\n";
-        $this->orderTotal+=$price;
+        $pricef = sprintf("%2.2d", $price);
+        $this->receipt .= ": $pricef EUR\n";
+        $this->orderTotal+=$pricef;
         $this->totalBooks++;
         if($this->totalBooks > 3) {
-            $this->orderTotal=$this->orderTotal-$price+$price*$this->DISCOUNT_EVERY_THREE_BOOKS;
+            $this->orderTotal=$this->orderTotal-$pricef+$pricef*$this->DISCOUNT_EVERY_THREE_BOOKS;
         }
     }
 
