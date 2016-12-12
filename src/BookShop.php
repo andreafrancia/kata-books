@@ -34,7 +34,7 @@ class BookShop {
         }
     }
 
-    private function getTotal() {
+    public function getTotal() {
         return $this->orderTotal;
     }
 
