@@ -18,13 +18,8 @@ class BookShop {
     }
 
     public function buy($title) {
-        $price = 0;
-        $this->receipt .= "$title";
-        for($i=0; $i<sizeof($this->books); $i++) {
-            if($title = $this->books[$i]->getTitle()) {
-                $price = $this->books[$i]->getFullPrice();
-            }
-        }
+        $price = $this->findPrice($title);
+
         $pricef = sprintf("%2.2d", $price);
         $this->receipt .= ": $pricef EUR\n";
         $this->orderTotal+=$pricef;
@@ -41,6 +36,18 @@ class BookShop {
     public function getReceipt() {
         $total = $this->getTotal();
         return "$this->receipt\nTOTAL: $total EUR";
+    }
+
+    public function findPrice($title)
+    {
+        $price = 0;
+        $this->receipt .= "$title";
+        for ($i = 0; $i < sizeof($this->books); $i++) {
+            if ($title = $this->books[$i]->getTitle()) {
+                $price = $this->books[$i]->getFullPrice();
+            }
+        }
+        return $price;
     }
 }
 
