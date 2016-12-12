@@ -12,9 +12,9 @@ class ATest extends TestCase {
     public function test_something() {
         $this->shop->buy("Harry Potter and the Half-Blood Prince");
 
-        self::assertEquals("Harry Potter and the Half-Blood Prince: 18 EUR
+        self::assertEquals("Harry Potter and the Half-Blood Prince: 16 EUR
 
-TOTAL: 18 EUR", $this->shop->getReceipt());
+TOTAL: 16 EUR", $this->shop->getReceipt());
     }
 
     public function  test_more_than_three_books() {
@@ -24,12 +24,12 @@ TOTAL: 18 EUR", $this->shop->getReceipt());
         $this->shop->buy("Harry Potter and the Half-Blood Prince");
         $this->shop->buy("Harry Potter and the Half-Blood Prince");
 
-        self::assertEquals('Harry Potter and the Half-Blood Prince: 18 EUR
-Harry Potter and the Half-Blood Prince: 18 EUR
-Harry Potter and the Half-Blood Prince: 18 EUR
-Harry Potter and the Half-Blood Prince: 18 EUR
+        self::assertEquals('Harry Potter and the Half-Blood Prince: 16 EUR
+Harry Potter and the Half-Blood Prince: 16 EUR
+Harry Potter and the Half-Blood Prince: 16 EUR
+Harry Potter and the Half-Blood Prince: 16 EUR
 
-TOTAL: 57.6 EUR', $this->shop->getReceipt());
+TOTAL: 51.2 EUR', $this->shop->getReceipt());
     }
 
     public function test_totale_all_inizio_e_zero()
@@ -39,7 +39,7 @@ TOTAL: 57.6 EUR', $this->shop->getReceipt());
 
     public function test_il_totale_per_un_libro_è_18() {
         $this->shop->buy("Harry Potter and the Half-Blood Prince");
-        self::assertEquals(18, $this->shop->getTotal());
+        self::assertEquals(16, $this->shop->getTotal());
     }
 
     public function test_il_totale_e_sempre_18() {
@@ -58,10 +58,10 @@ TOTAL: 57.6 EUR', $this->shop->getReceipt());
         $shop = new BookShop();
 
         $price = $shop->findPrice("Harry Potter and the Half-Blood Prince");
-        self::assertEquals(18.289999999999999, $price);
+        self::assertEquals(16.94, $price);
 
         $price = $shop->findPrice("Harry Potter and the Chamber of Secrets");
-        self::assertEquals(18.289999999999999, $price);
+        self::assertEquals(17.26, $price);
 
         $price = $shop->findPrice("Harry Potter and the Order of the Phoenix");
         self::assertEquals(18.289999999999999, $price);

@@ -43,7 +43,7 @@ class BookShop {
         $price = 0;
         $this->receipt .= "$title";
         for ($i = 0; $i < sizeof($this->books); $i++) {
-            if ($title = $this->books[$i]->getTitle()) {
+            if ($title == $this->books[$i]->getTitle()) {
                 $price = $this->books[$i]->getFullPrice();
             }
         }
